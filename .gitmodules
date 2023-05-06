@@ -1,0 +1,3 @@
+[submodule "Libft"]
+	path = Libft
+	url = https://github.com/brpereiraa/42.libft
