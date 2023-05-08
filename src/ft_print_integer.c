@@ -15,9 +15,12 @@
 
 int	ft_print_integer(int c)
 {
+	char *temp;
+
 	if(!c)
 		return(write(1, "(null)", 6));
-	ft_putstr_fd(ft_itoa(c), 1);
-	return(ft_strlen(c));
+	temp = ft_itoa(c);
+	ft_putstr_fd(temp, 1);
+	return(ft_strlen(temp));
 }
 	
