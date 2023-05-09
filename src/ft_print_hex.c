@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hexadecimal.c                             :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brpereir <brpereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:56:10 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/07 01:56:10 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/09 19:33:29 by brpereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int print_len(int c){
+static int	print_len(int c)
+{
 	int	len;
-	
+
 	len = 0;
-	while(c)
+	while (c)
 	{
 		len++;
 		c /= 16;
@@ -26,24 +27,24 @@ static int print_len(int c){
 
 static void	print(int c)
 {
-	const char *base;
+	const char	*base;
 
 	base = "0123456789abcdef";
-	if(c < 0)
-		ft_putchar_fd(1, '-');
-	else if(c < 16)
-		ft_putchar_fd(1, base[c])
+	if (c < 0)
+		ft_putchar_fd (1, '-');
+	else if (c < 16)
+		ft_putchar_fd (1, base[c]);
 	else
 	{
-		print(c / 16);
-		print(c % 16);
+		print (c / 16);
+		print (c % 16);
 	}
 }
 
-int ft_print_hex(int c)
+int	ft_print_hex(int c)
 {
-	if(!c)
-		return(write(1, "0", 1));
-	print(c);
-	return(print_len(c));
+	if (!c)
+		return (write(1, "0", 1));
+	print (c);
+	return (print_len(c));
 }

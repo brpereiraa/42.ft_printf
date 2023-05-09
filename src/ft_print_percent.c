@@ -6,7 +6,7 @@
 /*   By: brpereir <brpereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 18:43:50 by brpereir          #+#    #+#             */
-/*   Updated: 2023/05/06 16:02:17 by brpereir         ###   ########.fr       */
+/*   Updated: 2023/05/09 19:39:14 by brpereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	ft_print_percent(void)
 {
-	ft_putchar_fd('%', 1);
-	return(1);
+	ft_putchar_fd ('%', 1);
+	return (1);
 }

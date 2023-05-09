@@ -6,7 +6,7 @@
 /*   By: brpereir <brpereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 18:43:53 by brpereir          #+#    #+#             */
-/*   Updated: 2023/05/06 16:08:27 by brpereir         ###   ########.fr       */
+/*   Updated: 2023/05/09 19:28:34 by brpereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static int	ft_format(const char *str, va_list ap)
 		return (write(1, "0", 6));
 }
 
-int	ft_printf(const char *str, ...){
+int	ft_printf(const char *str, ...)
+{
 	va_list		ap;
 	size_t		i;
 	int			len;
@@ -48,12 +49,12 @@ int	ft_printf(const char *str, ...){
 	{
 		if (str[i] == '%' && str[i + 1])
 		{
-			len += 	ft_format(str + i, ap);
-			i++;	
+			len += ft_format(str + i, ap);
+			i++;
 		}	
 		else
-			ft_putchar_fd(str[i], 1);
+			ft_putchar_fd (str[i], 1);
 	}
-	va_end(ap);
+	va_end (ap);
 	return (len);
 }

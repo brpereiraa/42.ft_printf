@@ -6,7 +6,7 @@
 /*   By: brpereir <brpereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 18:50:31 by brpereir          #+#    #+#             */
-/*   Updated: 2023/05/06 16:03:32 by brpereir         ###   ########.fr       */
+/*   Updated: 2023/05/09 19:41:07 by brpereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_print_str(char *s)
 {
-	size_t i;
-	
+	size_t	i;
+
 	i = -1;
 	if (!s)
 		return (write(1, "0", 1));
 	while (s[++i])
 		ft_putchar_fd(s[i], 1);
-	return(i);
+	return (i);
 }
