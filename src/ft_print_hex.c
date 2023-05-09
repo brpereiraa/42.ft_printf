@@ -24,12 +24,10 @@ static int print_len(int c){
 	return (len);
 }
 
-int	print_hex(int c)
+static void	print(int c)
 {
 	const char *base;
 
-	if(!c)
-		return (1, "(nil)", 5);
 	base = "0123456789abcdef";
 	if(c < 0)
 		ft_putchar_fd(1, '-');
@@ -37,8 +35,15 @@ int	print_hex(int c)
 		ft_putchar_fd(1, base[c])
 	else
 	{
-		print_hex(c / 16);
-		print_hex(c % 16);
+		print(c / 16);
+		print(c % 16);
 	}
+}
+
+int ft_print_hex(int c)
+{
+	if(!c)
+		return(write(1, "0", 1));
+	print(c);
 	return(print_len(c));
 }

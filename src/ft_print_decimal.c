@@ -17,7 +17,7 @@ int	ft_print_decimal(int c)
 	char	*temp;
 	
 	if (!c)
-		return(write(1, "(nil)", 5));
+		return(write(1, "0", 1));
 	temp = ft_itoa(c);
 	ft_putstr_fd (temp, 1);
 	return(ft_strlen(temp));

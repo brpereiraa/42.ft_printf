@@ -14,7 +14,7 @@
 
 static size_t	count(size_t n)
 {
-	int	count;
+	size_t	count;
 
 	count = 0;
 	if (n == 0)

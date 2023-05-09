@@ -33,7 +33,7 @@ static int	ft_format(const char *str, va_list ap)
 	else if (*str == '%')
 		return (ft_print_percent(va_arg(ap, void *)));
 	else
-		return (write(1, "(null)", 6));
+		return (write(1, "0", 6));
 }
 
 int	ft_printf(const char *str, ...){
