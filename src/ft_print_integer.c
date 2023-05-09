@@ -18,7 +18,7 @@ int	ft_print_integer(int c)
 	char *temp;
 
 	if(!c)
-		return(write(1, "(null)", 6));
+		return(write(1, "(nil)", 6));
 	temp = ft_itoa(c);
 	ft_putstr_fd(temp, 1);
 	return(ft_strlen(temp));

@@ -28,6 +28,8 @@ int	print_hex(int c)
 {
 	const char *base;
 
+	if(!c)
+		return (1, "(nil)", 5);
 	base = "0123456789abcdef";
 	if(c < 0)
 		ft_putchar_fd(1, '-');
@@ -36,7 +38,7 @@ int	print_hex(int c)
 	else
 	{
 		print_hex(c / 16);
-		print_hex(c % 16); 
+		print_hex(c % 16);
 	}
 	return(print_len(c));
 }

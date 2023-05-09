@@ -35,9 +35,9 @@ static size_t	count(size_t n)
 
 char	*ft_itoa_long(size_t n)
 {
-	int			num;
 	char		*c;
-	size_t	nb;
+	size_t		num;
+	size_t		nb;
 
 	nb = n;
 	num = count(nb);
@@ -47,11 +47,6 @@ char	*ft_itoa_long(size_t n)
 	c[num--] = '\0';
 	if (nb == 0)
 		return (if_zero(c));
-	if (nb < 0)
-	{
-		c[0] = '-';
-		nb = -nb;
-	}
 	while (nb > 0)
 	{
 		c[num--] = (nb % 10) + 48;
@@ -67,7 +62,7 @@ int	ft_print_unsigned_decimal(size_t c)
 	
 	if(!c)
 		return(write(1, "(null)", 6));
-	
+	temp = ft_itoa_long(c);
 	ft_putstr_fd(temp, 1);
 	return(ft_strlen(temp));
 }

@@ -18,7 +18,7 @@ int	ft_print_str(char *s)
 	
 	i = -1;
 	if (!s)
-		return (write(1, "(null)", 6));
+		return (write(1, "(nil)", 6));
 	while (s[++i])
 		ft_putchar_fd(s[i], 1);
 	return(i);

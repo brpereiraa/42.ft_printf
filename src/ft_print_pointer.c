@@ -12,16 +12,38 @@
 
 #include "../includes/ft_printf.h"
 
-// int	ft_print_pointer(void *p)
-// {
-// 	size_t	i;
-// 	char *s;
+static int print_len(int c){
+	int	len;
+	
+	len = 0;
+	while(c)
+	{
+		len++;
+		c /= 16;
+	}
+	return (len);
+}
 
-// 	if(!p)
-// 		return (write(1, "(null)", 6));
-// 	i = -1;
-// 	s = (char *)p;
-// 	while(s[++i])
-// 		write(1, s[i], 1);
-// 	return (i);
-// }
+void	print_hex(int c)
+{
+	const char *base;
+
+	if(!c)
+		return (write(1, "(nil)", 5));
+	base = "0123456789abcdef";
+	if(c < 0)
+		ft_putchar_fd(1, '-');
+	else if(c < 16)
+		ft_putchar_fd(1, base[c])
+	else
+	{
+		print_hex(c / 16);
+		print_hex(c % 16); 
+	}
+}
+
+int ft_print_pointer(void *c)
+{
+	print(c);
+	return(print_len(c));
+}

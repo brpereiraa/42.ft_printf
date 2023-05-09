@@ -28,7 +28,9 @@ static int	print_hex_upper(int c)
 {
 	const char *base;
 
-	base = "0123456789abcdef";
+	if(!c)
+		return (write(1, "(nil)", 5));
+	base = "0123456789ABCDEF";
 	if(c < 0)
 		ft_putchar_fd(1, '-');
 	else if(c < 16)
