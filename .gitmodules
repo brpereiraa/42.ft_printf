@@ -4,3 +4,6 @@
 [submodule "libft"]
 	path = libft
 	url = https://github.com/brpereiraa/42.libft
+[submodule "42.libft"]
+	path = 42.libft
+	url = https://github.com/brpereiraa/42.libft
