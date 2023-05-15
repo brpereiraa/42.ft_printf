@@ -6,11 +6,17 @@
 /*   By: brpereir <brpereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 23:26:09 by brpereir          #+#    #+#             */
-/*   Updated: 2023/05/09 19:42:30 by brpereir         ###   ########.fr       */
+/*   Updated: 2023/05/15 20:50:17 by brpereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+static char	*if_zero(char *str)
+{
+	str[0] = '0';
+	return (str);
+}
 
 static size_t	count(size_t n)
 {

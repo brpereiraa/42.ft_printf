@@ -6,13 +6,13 @@
 /*   By: brpereir <brpereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 18:43:50 by brpereir          #+#    #+#             */
-/*   Updated: 2023/05/09 19:40:36 by brpereir         ###   ########.fr       */
+/*   Updated: 2023/05/15 22:04:06 by brpereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	print_len(int c)
+static int	print_len(uintptr_t c)
 {
 	int	len;
 
@@ -25,7 +25,7 @@ static int	print_len(int c)
 	return (len);
 }
 
-void	print_hex(int c)
+void	print_hex(uintptr_t c)
 {
 	const char	*base;
 
@@ -41,7 +41,7 @@ void	print_hex(int c)
 	}
 }
 
-int	ft_print_pointer(void *c)
+int	ft_print_pointer(unsigned long long c)
 {
 	if (!c)
 		return (write(1, "0", 1));

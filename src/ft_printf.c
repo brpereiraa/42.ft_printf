@@ -6,32 +6,32 @@
 /*   By: brpereir <brpereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 18:43:53 by brpereir          #+#    #+#             */
-/*   Updated: 2023/05/09 19:28:34 by brpereir         ###   ########.fr       */
+/*   Updated: 2023/05/15 22:01:07 by brpereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	ft_format(const char *str, va_list ap)
+static int	ft_format(const char c, va_list ap)
 {
-	if (*str == 'c')
+	if (c == 'c')
 		return (ft_print_char(va_arg(ap, int)));
-	else if (*str == 's')
+	else if (c == 's')
 		return (ft_print_str(va_arg(ap, char *)));
-	else if (*str == 'p')
-		return (ft_print_pointer(va_arg(ap, void *)));
-	else if (*str == 'd')
+	else if (c == 'p')
+		return (ft_print_pointer(va_arg(ap, unsigned long long )));
+	else if (c == 'd')
 		return (ft_print_decimal(va_arg(ap, int)));
-	else if (*str == 'i')
+	else if (c == 'i')
 		return (ft_print_integer(va_arg(ap, int)));
-	else if (*str == 'u')
+	else if (c == 'u')
 		return (ft_print_unsigned_decimal(va_arg(ap, size_t)));
-	else if (*str == 'x')
-		return (ft_print_hexadecimal(va_arg(ap, void *)));
-	else if (*str == 'X')
-		return (ft_print_hexadecimal_upper(va_arg(ap, void *)));
-	else if (*str == '%')
-		return (ft_print_percent(va_arg(ap, void *)));
+	else if (c == 'x')
+		return (ft_print_hex(va_arg(ap, int)));
+	else if (c == 'X')
+		return (ft_print_hex_upper(va_arg(ap, int)));
+	else if (c == '%')
+		return (ft_print_percent());
 	else
 		return (write(1, "0", 6));
 }
@@ -47,13 +47,15 @@ int	ft_printf(const char *str, ...)
 	va_start (ap, str);
 	while (str[++i])
 	{
-		if (str[i] == '%' && str[i + 1])
+		if (str[i] == '%')
 		{
-			len += ft_format(str + i, ap);
-			i++;
+			len += ft_format(str[++i], ap);
 		}	
 		else
+		{
 			ft_putchar_fd (str[i], 1);
+			len++;		
+		}
 	}
 	va_end (ap);
 	return (len);
