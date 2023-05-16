@@ -14,6 +14,8 @@
 # define FT_PRINTF_H
 # include "../libft/libft.h"
 # include <stdint.h>
+# include <stdarg.h>
+# include <stdio.h>
 
 int		ft_print_unsigned_decimal(size_t n);
 int		ft_print_percent(void);

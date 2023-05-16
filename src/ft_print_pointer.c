@@ -30,9 +30,7 @@ void	print_hex(uintptr_t c)
 	const char	*base;
 
 	base = "0123456789abcdef";
-	if (c < 0)
-		ft_putchar_fd (1, '-');
-	else if (c < 16)
+	if (c < 16)
 		ft_putchar_fd (1, base[c]);
 	else
 	{

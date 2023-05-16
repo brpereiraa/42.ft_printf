@@ -25,11 +25,6 @@ static size_t	count(size_t n)
 	count = 0;
 	if (n == 0)
 		return (1);
-	if (n < 0)
-	{
-		n = -n;
-		count++;
-	}
 	while (n)
 	{
 		count++;
