@@ -6,13 +6,13 @@
 /*   By: brpereir <brpereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:56:10 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/15 22:03:47 by brpereir         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:33:38 by brpereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	print_len(int c)
+static int	print_len(unsigned int c)
 {
 	int	len;
 
@@ -25,16 +25,21 @@ static int	print_len(int c)
 	return (len);
 }
 
-static void	print(int c, char casing)
+static void	print(unsigned int c, char casing)
 {
-	if (c >= 16)
+	if (c < 0)
+	{
+		ft_putchar_fd('-', 1);
+		c = -c;
+	}
+	else if (c >= 16)
 	{
 		print(c / 16, casing);
 		print(c % 16, casing);
 	}
 	else
 	{
-		if (c <= 9)
+		if (c < 10)
 			ft_putchar_fd((c + 48), 1);
 		else
 		{
@@ -46,9 +51,9 @@ static void	print(int c, char casing)
 	}
 }
 
-int	ft_print_hex(int c, char casing)
+int	ft_print_hex(unsigned int c, char casing)
 {
-	if (!c)
+	if(c == 0)
 		return (write(1, "0", 1));
 	print(c, casing);
 	return (print_len(c));

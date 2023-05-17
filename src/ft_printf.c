@@ -6,7 +6,7 @@
 /*   By: brpereir <brpereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 18:43:53 by brpereir          #+#    #+#             */
-/*   Updated: 2023/05/15 22:01:07 by brpereir         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:31:25 by brpereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static int	ft_format(const char c, va_list ap)
 	else if (c == 'i')
 		return (ft_print_integer(va_arg(ap, int)));
 	else if (c == 'u')
-		return (ft_print_unsigned_decimal(va_arg(ap, size_t)));
+		return (ft_print_unsigned_decimal(va_arg(ap, unsigned int)));
 	else if (c == 'x')
-		return (ft_print_hex(va_arg(ap, int), 'a'));
+		return (ft_print_hex(va_arg(ap, unsigned int), 'a'));
 	else if (c == 'X')
-		return (ft_print_hex(va_arg(ap, int), 'A'));
+		return (ft_print_hex(va_arg(ap, unsigned int), 'A'));
 	else if (c == '%')
 		return (ft_print_percent());
 	else

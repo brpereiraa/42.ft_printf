@@ -6,15 +6,15 @@
 /*   By: brpereir <brpereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 23:26:09 by brpereir          #+#    #+#             */
-/*   Updated: 2023/05/15 20:50:17 by brpereir         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:32:57 by brpereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static size_t	count(size_t n)
+static unsigned int	count(unsigned int n)
 {
-	size_t	count;
+	unsigned int	count;
 
 	count = 0;
 	if (n == 0)
@@ -27,11 +27,11 @@ static size_t	count(size_t n)
 	return (count);
 }
 
-char	*ft_itoa_long(size_t n)
+char	*ft_itoa_long(unsigned int n)
 {
 	char		*c;
-	size_t		num;
-	size_t		nb;
+	unsigned int		num;
+	unsigned int		nb;
 
 	nb = n;
 	num = count (nb);
@@ -52,13 +52,16 @@ char	*ft_itoa_long(size_t n)
 	return (c);
 }
 
-int	ft_print_unsigned_decimal(size_t c)
+int	ft_print_unsigned_decimal(unsigned int c)
 {
 	char	*temp;
+	int		size;
 
-	if (!c)
-		return (write(1, "(null)", 6));
+	if (c == 0)
+		return (write(1, "0", 1));
 	temp = ft_itoa_long(c);
 	ft_putstr_fd (temp, 1);
-	return (ft_strlen (temp));
+	size = ft_strlen (temp);
+	free(temp);
+	return (size);
 }
