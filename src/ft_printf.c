@@ -27,9 +27,9 @@ static int	ft_format(const char c, va_list ap)
 	else if (c == 'u')
 		return (ft_print_unsigned_decimal(va_arg(ap, size_t)));
 	else if (c == 'x')
-		return (ft_print_hex(va_arg(ap, int)));
+		return (ft_print_hex(va_arg(ap, int), 'a'));
 	else if (c == 'X')
-		return (ft_print_hex_upper(va_arg(ap, int)));
+		return (ft_print_hex(va_arg(ap, int), 'A'));
 	else if (c == '%')
 		return (ft_print_percent());
 	else

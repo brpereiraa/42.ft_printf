@@ -2,7 +2,7 @@ NAME = libftprintf.a
 CFLAGS = -Wall -Werror -Wextra 
 CC = cc 
 
-SRCS = src/ft_print_char.c src/ft_print_decimal.c src/ft_print_hex.c src/ft_print_hex_upper.c \
+SRCS = src/ft_print_char.c src/ft_print_decimal.c src/ft_print_hex.c \
 		src/ft_print_integer.c src/ft_print_percent.c src/ft_print_pointer.c src/ft_print_str.c src/ft_print_str.c \
 		src/ft_print_unsigned_decimal.c src/ft_printf.c
 

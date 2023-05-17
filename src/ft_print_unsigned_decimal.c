@@ -12,12 +12,6 @@
 
 #include "../includes/ft_printf.h"
 
-static char	*if_zero(char *str)
-{
-	str[0] = '0';
-	return (str);
-}
-
 static size_t	count(size_t n)
 {
 	size_t	count;
@@ -46,7 +40,10 @@ char	*ft_itoa_long(size_t n)
 		return (NULL);
 	c[num--] = '\0';
 	if (nb == 0)
-		return (if_zero(c));
+	{
+		c[0] = '0';
+		return (c);
+	}
 	while (nb > 0)
 	{
 		c[num--] = (nb % 10) + 48;

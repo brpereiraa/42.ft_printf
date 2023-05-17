@@ -25,26 +25,31 @@ static int	print_len(int c)
 	return (len);
 }
 
-static void	print(int c)
+static void	print(int c, char casing)
 {
-	const char	*base;
-
-	base = "0123456789abcdef";
-	if (c < 0)
-		ft_putchar_fd (1, '-');
-	else if (c < 16)
-		ft_putchar_fd (1, base[c]);
+	if (c >= 16)
+	{
+		print(c / 16, casing);
+		print(c % 16, casing);
+	}
 	else
 	{
-		print (c / 16);
-		print (c % 16);
+		if (c <= 9)
+			ft_putchar_fd((c + 48), 1);
+		else
+		{
+			if (casing == 'a')
+				ft_putchar_fd((c - 10 + 'a'), 1);
+			else if (casing == 'A')
+				ft_putchar_fd((c - 10 + 'A'), 1);
+		}
 	}
 }
 
-int	ft_print_hex(int c)
+int	ft_print_hex(int c, char casing)
 {
 	if (!c)
 		return (write(1, "0", 1));
-	print (c);
+	print(c, casing);
 	return (print_len(c));
 }

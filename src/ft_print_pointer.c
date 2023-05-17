@@ -27,15 +27,17 @@ static int	print_len(uintptr_t c)
 
 void	print_hex(uintptr_t c)
 {
-	const char	*base;
-
-	base = "0123456789abcdef";
-	if (c < 16)
-		ft_putchar_fd (1, base[c]);
+	if (c >= 16)
+	{
+		ft_putchar_fd((c / 16) + 48, 1);
+		ft_putchar_fd((c % 16) + 48, 1);
+	}
 	else
 	{
-		print_hex (c / 16);
-		print_hex (c % 16);
+		if (c <= 9)
+			ft_putchar_fd((c + 48), 1);
+		else
+			ft_putchar_fd((c - 10 + 'a'), 1);
 	}
 }
 

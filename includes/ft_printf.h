@@ -24,8 +24,7 @@ int		ft_print_integer(int c);
 int		ft_print_char(int c);
 int		ft_print_pointer(unsigned long long c);
 int		ft_print_decimal(int c);
-int		ft_print_hex(int c);
-int		ft_print_hex_upper(int c);
+int 	ft_print_hex(int c, char casing);
 int		ft_printf(const char *str, ...);
 
 #endif
